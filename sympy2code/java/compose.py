@@ -16,13 +16,13 @@ def add_code_helper(s: str, arg1: Basic):
     if arg1.func == Mul and arg1.args[0] == -1:
         return f"{s} - ({java_code(Mul(*arg1.args[1:]))})"
     else:
-        return f"{s} + {java_code(arg1)}"
+        return f"{s} + ({java_code(arg1)})"
 
 def mul_code_helper(s: str, arg1: Basic):
     if arg1.func == Pow and arg1.args[0] == -1:
         return f"{s} / ({java_code(arg1.args[1])})"
     else:
-        return f"{s} * {java_code(arg1)}"
+        return f"{s} * ({java_code(arg1)})"
 
 def java_code(formula: Basic) -> str:
     if isinstance(formula, Add):

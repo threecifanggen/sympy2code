@@ -2,8 +2,8 @@ from sympy import *
 
 a = Symbol("a")
 b = Symbol("b")
-pve_level = Symbol("pl")
-m = Symbol("m")
+pve_level = Symbol("pl", integer=True)
+m = Symbol("m", integer=True)
 
 add_1 = a + 1
 minus_1 = a - 2

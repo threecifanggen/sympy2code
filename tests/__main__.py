@@ -43,7 +43,7 @@ for name, formula in java_code_dict.items():
         variables_str = ", ".join(f"{v}"for k, v in formula_symbols.items())
         res = float(sympy.Float(reduce(lambda f, s: f.subs(s[0], s[1]), formula_symbols.items(), formula)).evalf())
         java_test_code += f"\t\tassertEquals(SympyCode.{name}({variables_str}), {res});\n"
-    java_test_code += "};\n\n"
+    java_test_code += "\t};\n\n"
 
 test_file_str = f"""\
 package sympytest;
